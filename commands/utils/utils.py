@@ -15,14 +15,20 @@ def validate(expression):
             f'Please use a proper value'
         )
 
-def check_or_create_upload_name(upload_name):
-    final_upload_dir = os.path.join(const.YT_UPLOADS_DIR, upload_name)
+def check_or_create(folder_dir):
+    '''
+        A generic method to create directories,
+        It also logs out if the folder was already created
+    :param folder_dir:
+    :return:
+    '''
+
     # I want to catch differently whether if the folder is created or not to log it out
-    if not os.path.exists(final_upload_dir):
-        os.makedirs(final_upload_dir, exist_ok=False)
-        print(f'FOLDER CREATED ✔️ -> {final_upload_dir}')
+    if not os.path.exists(folder_dir):
+        os.makedirs(folder_dir, exist_ok=False)
+        print(f'FOLDER CREATED ✔️ -> {folder_dir}')
     else:
-        print(f'WORKING ON EXISTING FOLDER -> {final_upload_dir}')
+        print(f'WORKING ON EXISTING FOLDER -> {folder_dir}')
 
 
 def clean():
