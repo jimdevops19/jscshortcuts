@@ -5,6 +5,17 @@ import os
 
 
 class CreateWorkspace:
+
+    DIRS = [
+        'powerpnts',
+        'takes',
+        'tut',
+        'code',
+        'icons',
+        ''
+        ''
+    ]
+
     def __init__(self, upload_name):
         self.upload_name = upload_name
         self.__upload_path = self.__create_folder()
@@ -30,8 +41,16 @@ class CreateWorkspace:
         for method in methods_objects:
             method()
 
+    def create_dirs(self):
+        for folder_name in self.DIRS: # Maybe someone would like to customize dirs in instance level?
+            final_path = os.path.join(self.__get_upload_path(), folder_name)
+            check_or_create(final_path)
 
     def create_powerpnts(self):
+        '''
+        Copy the templated power point files
+        :return:
+        '''
         extension = 'pptx'
         # Create powerpnt directory in destination
         destination_powerpnts_path = os.path.join(self.__get_upload_path(), const.POWERPNTS)

@@ -52,7 +52,7 @@ def main(**kwargs):
         """)
         upload_name = input('Upload folder: \n')
         CreateWorkspace(upload_name).create_all()
-
+        os.system(f"cd {os.path.join(const.YT_UPLOADS_DIR, upload_name)}")
 
 if __name__ == '__main__':
     # Change keys for more acceptable arguments
